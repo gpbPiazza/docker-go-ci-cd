@@ -16,7 +16,7 @@ func TestHealthCheckService_Pong(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			this := &HealthCheckService{}
+			this := NewService()
 			if got := this.Ping(); got != tt.want {
 				t.Errorf("Pong() = %v, want %v", got, tt.want)
 			}
