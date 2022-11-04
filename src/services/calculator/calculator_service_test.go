@@ -19,6 +19,11 @@ func TestCalculator_Sum(t *testing.T) {
 			want:  11,
 			input: []int{5, 5, 1},
 		},
+		{
+			name:  "should return 0 if numbers to sum is empty",
+			want:  0,
+			input: []int{},
+		},
 	}
 
 	for _, tt := range testCases {
