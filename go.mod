@@ -1,4 +1,4 @@
-module github.com/gpbPiazza
+module github.com/gpbPiazza/docker-go-ci-cd
 
 go 1.17
 

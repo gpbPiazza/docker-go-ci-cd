@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  simple-api:
+    build:
+      context: .
+    container_name: simple-api
+    ports:
+      - 5050:5050
+    
