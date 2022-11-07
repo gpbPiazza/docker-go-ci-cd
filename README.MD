@@ -14,7 +14,7 @@ $ make build
 ### Executando a API
 Para executar a API, basta rodar:
 ```bash
-$  make run-local
+$  make run/local 
 ```
 
 ## Como testar
@@ -23,22 +23,14 @@ $  make run-local
 Então, rode todos os testes com:
 
 ```bash
-$ make test
+$ make run/test
 ```
-
-### Verificando coverage:
-Para verificar o coverage, execute:
-
-```bash
-$ make cover
-```
-
 ### Verificando report de testes:
 
 Para entender o coverage dos testes, execute:
 
 ```bash
-$ make report/unit
+$ make coverage/unit
 # $ make report/integration
 ```
 
