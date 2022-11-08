@@ -2,19 +2,25 @@
 
 docker-go-cdi-cd é um repositório aonde estou implementando pela primeira vez pipelines de testes, CI, CD, testes de vulnerabilidade, qualidade de código e afins... para uma simples API :smile:
 
+Work-flows list:
+- CI [DONE]
+- Unit tests [WIP]
+- CD [BACKLOG]
+- Vulnerabilities scan [BACKLOG]
+- Coverage range limit [BACKLOG]
+
 ---
-
-### Compilando todos os executáveis
-Para compilar todos os executáveis, basta rodar:
-
-```bash
-$ make build
-```
 
 ### Executando a API
 Para executar a API, basta rodar:
 ```bash
 $  make run/local 
+```
+### Compilando todos os executáveis
+Para compilar todos os executáveis, basta rodar:
+
+```bash
+$ make build
 ```
 
 ## Como testar
