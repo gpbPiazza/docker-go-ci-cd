@@ -29,4 +29,4 @@ jobs:
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
-          coverageLocations: ${{github.workspace}}/*.out:gocov
+          coverageLocations: ${{github.workspace}}/.cover/*.out:gocov
