@@ -11,13 +11,15 @@ GOTEST ?= go test
 run/local: 
 	go run main.go
 
-.PHONY: run/test
-run/test:
-	@echo "Running all unit tests"
-	$(GOTEST) -cover -p 2 -v ./...
+.PHONY: run/ci-test
+run/ci-test:
+	@echo "Running all unit tests"		
+	$(GOTEST) -p 2 -v ./... -covermode=atomic -coverprofile=coverage.out
 
-
-# $(words $(gofmt_files))
+.PHONY: run/local-test
+run/local-test:
+	@echo "Running all unit tests"		
+	$(GOTEST) -cover -p  2 -v ./...
 
 gofmt_files := $(shell gofmt -l .)
 run/check-gofmt:
@@ -36,7 +38,6 @@ build:
 #-----------------------------------------#
 # CORAVERAGE COMMANDS
 #-----------------------------------------#
-.PHONY: coverage/unit
-coverage/unit: 
-	@echo "Making coverage report..."
-	$(GOTEST) -cover -p 2 -v ./...
+.PHONY: coverage
+coverage: 
+	go tool cover -func=coverage.out

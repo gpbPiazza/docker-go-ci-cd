@@ -19,6 +19,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3 
       - name: Running tests
-        run: make run/test
+        run: make run/ci-test
       - name: Check Gofmt
         run: make run/check-gofmt
+      - name: Make coverage file
+        run: make coverage
+      # - name: Publish code coverage
+      
