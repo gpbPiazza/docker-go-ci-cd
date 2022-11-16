@@ -3,11 +3,16 @@
 docker-go-cdi-cd é um repositório aonde estou implementando pela primeira vez pipelines de testes, CI, CD, testes de vulnerabilidade, qualidade de código e afins... para uma simples API :smile:
 
 Work-flows list:
-- CI [DONE]
-- Unit tests [WIP]
-- CD [BACKLOG]
+- Unit Tests and quality
+  - Running tests :white_check_mark:
+  - Check Gofmt :white_check_mark:
+  - Make coverage file :white_check_mark:
+  - Publish code coverage :white_check_mark:
+- CI [WIP]
+  - Build image push to Docker hub
+  - ...[WIP]
+- CD [WIP]
 - Vulnerabilities scan [BACKLOG]
-- Coverage range limit [BACKLOG]
 
 ---
 
@@ -29,23 +34,22 @@ $ make build
 Então, rode todos os testes com:
 
 ```bash
-$ make run/test
+$ make run/local-test
 ```
 ### Verificando report de testes:
 
 Para entender o coverage dos testes, execute:
 
 ```bash
-$ make coverage/unit
-# $ make report/integration
+$ make run/ci-test coverage
 ```
 
-esse comando irá gerar dois arquivos .html que mostram um report da coverage,
+esse comando irá rodar todos os tests da aplicação e criar uma pasta `.cover` aonde lá teremos nosso coverage report:
+
 para abri-los, execute:
 
 ```bash
-$ open .cover/unit.html
-# $ open .cover/integration.html
+$ make coverage/html
 ```
 
 ---

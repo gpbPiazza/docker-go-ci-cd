@@ -50,3 +50,7 @@ setup/cover:
 .PHONY: coverage
 coverage: 
 	go tool cover -func=${COVER_DIR}/${FILE_COVER}
+
+.PHONY: coverage/html
+coverage/html: 
+	go tool cover -html=${COVER_DIR}/${FILE_COVER}
