@@ -15,7 +15,7 @@ run/local:
 .PHONY: run/ci-test
 run/ci-test: setup/cover
 	@echo "Running all unit tests"		
-	$(GOTEST) -failfast -v -p 2  ./...  \
+	$(GOTEST) -failfast -v -p 2  ./src/...  \
 		-coverpkg=${COVER_ENTRY} \
 		-covermode=atomic \
 		-coverprofile=${COVER_DIR}/${FILE_COVER}
@@ -23,7 +23,7 @@ run/ci-test: setup/cover
 .PHONY: run/local-test
 run/local-test:
 	@echo "Running all unit tests"		
-	$(GOTEST) -cover -p  2 -v ./...
+	$(GOTEST) -cover -p  2 -v ./src/...
 
 gofmt_files := $(shell gofmt -l .)
 run/check-gofmt:
