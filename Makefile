@@ -2,8 +2,9 @@
 # MAKE VARIABLES
 #-----------------------------------------#
 GOTEST ?= go test
-
-
+COVER_DIR ?=  ./.cover
+FILE_COVER ?= coverage.out
+COVER_ENTRY ?= ./...
 #-----------------------------------------#
 # RUN COMMANDS
 #-----------------------------------------#
@@ -12,9 +13,12 @@ run/local:
 	go run main.go
 
 .PHONY: run/ci-test
-run/ci-test:
+run/ci-test: setup/cover
 	@echo "Running all unit tests"		
-	$(GOTEST) -p 2 -v ./... -covermode=atomic -coverprofile=coverage.out
+	$(GOTEST) -failfast -v -p 2  ./...  \
+		-coverpkg=${COVER_ENTRY} \
+		-covermode=atomic \
+		-coverprofile=${COVER_DIR}/${FILE_COVER}
 
 .PHONY: run/local-test
 run/local-test:
@@ -38,6 +42,11 @@ build:
 #-----------------------------------------#
 # CORAVERAGE COMMANDS
 #-----------------------------------------#
+.PHONY: setup/cover
+setup/cover:
+	@rm -rf ${COVER_DIR}
+	@mkdir -p ${COVER_DIR}
+
 .PHONY: coverage
 coverage: 
-	go tool cover -func=coverage.out
+	go tool cover -func=${COVER_DIR}/${FILE_COVER}
