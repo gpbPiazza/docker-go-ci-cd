@@ -30,8 +30,3 @@ build:
 coverage/unit: 
 	@echo "Making coverage report..."
 	$(GOTEST) -cover -p 2 -v ./...
-
-
-
-
-

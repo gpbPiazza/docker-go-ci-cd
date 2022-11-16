@@ -4,6 +4,18 @@ on:
     branches:
       - "main"
 jobs:
+  tests:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.17
+      - name: Checkout
+        uses: actions/checkout@v3 
+      - name: Test
+        run: make run/test
   build:
     runs-on: ubuntu-latest
     steps:
