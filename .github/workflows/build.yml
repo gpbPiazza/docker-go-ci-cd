@@ -1,4 +1,4 @@
-name: ci
+name: Build and Push Image to docker Hub
 on:
   push:
     branches:
