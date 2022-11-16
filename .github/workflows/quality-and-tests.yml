@@ -28,4 +28,5 @@ jobs:
         uses: paambaati/codeclimate-action@v3.2.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        coverageLocations: ${{github.workspace}}/*.out:gocov
+        with:
+          coverageLocations: ${{github.workspace}}/*.out:gocov
