@@ -2,7 +2,11 @@ name: Unit Tests
 on:
   push:
     branches:
-      - "main"
+      - main
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened, created]
 jobs:
   tests:
     name: Unit tests

@@ -2,7 +2,11 @@ name: ci
 on:
   push:
     branches:
-      - "main"
+      - main
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened, created]
   build:
     name: Build and Push Image to docker Hub
     runs-on: ubuntu-latest
