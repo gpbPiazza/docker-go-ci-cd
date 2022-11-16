@@ -7,6 +7,7 @@ on:
     branches:
       - main
     types: [opened, synchronize, reopened, created]
+jobs:
   build:
     name: Build and Push Image to docker Hub
     runs-on: ubuntu-latest
